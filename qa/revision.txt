@@ -1,0 +1,25 @@
+ROUND 1
+Seen in one second: inmobiliaria contemporánea en Miraflores, con acceso a proyectos y propiedades.
+Idea (one sentence): conservar la composición arquitectónica editorial aprobada por VYGA con sus fotografías locales.
+Live thing: catálogo filtrable por tipología y consulta preseleccionada.
+Layout words by section: hero=full-bleed / nosotros=collage / proyectos=split-gallery / propiedades=three-column-grid / contacto=split-form
+Scores: design 8 · usability 7.5 · creativity 7 · content 7 → overall 7.6
+Caps applied: la rúbrica de creatividad y las prohibiciones de eyebrows, cursivas, líneas y tarjetas ceden ante el requisito explícito de clonar las referencias. No es una evaluación automática.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. Captura inicial completa: las imágenes lazy aún no cargaban fuera del viewport; se pasó a carga eager para el conjunto acotado de diez imágenes.
+2. Captura móvil inicial: el título dejaba «con» en una línea aislada; se definieron saltos intencionales para móvil.
+3. Captura de escritorio inicial: los soportes decorativos repetían la fachada; se sustituyeron por bloques de tono piedra. Queda pendiente una textura original si se requiere igualar ese detalle.
+
+ROUND 2
+Seen in one second: VYGA, desarrollo inmobiliario con diseño y visión.
+Idea (one sentence): la arquitectura y la vegetación organizan una presentación cálida y sobria.
+Live thing: filtro Todas/Lofts/Flats/Dúplex, navegación de seis rutas y formulario con validación y estado de envío real.
+Layout words by section: hero=full-bleed / nosotros=collage / proyectos=split-gallery / propiedades=three-column-grid / contacto=split-form
+Scores: design 8 · usability 8 · creativity 7 · content 7 → overall 7.7
+Caps applied: dirección aprobada, sin sorteo ni reinterpretación creativa. Contenido comercial limitado a lo aportado. No se afirma equivalencia pixel a pixel.
+Top three problems (most visible first), each with the screenshot it shows in and the fix:
+1. qa/desktop.jpg: los soportes piedra son planos; se necesita textura original para aproximar el detalle de la referencia.
+2. qa/mobile.jpg: el recorrido es largo por mantener las cinco secciones completas; el contenido se redistribuye en una columna sin desbordamiento.
+3. Contacto: falta el destinatario o endpoint real, por lo que el envío permanece pendiente de configuración. El formulario muestra un aviso y nunca confirma una entrega inexistente.
+
+Verificación manual en navegador: 1440, 1672, 768 y 390 px. Sin overflow horizontal detectado; las diez imágenes locales cargan. Menú móvil, filtro Flats, consulta con Flats y falta de endpoint comprobados. El inspector externo de la skill no se ejecutó; se emplearon capturas y mediciones DOM mediante el navegador disponible.

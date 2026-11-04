@@ -1,0 +1,6 @@
+import { Layers2, Leaf, MapPin } from 'lucide-react'
+import { Button, Reveal } from '../ui'
+export function Hero() { return <section className="hero" aria-labelledby="hero-title"><img className="hero-background" src="/images/hero_fondo.webp" alt="Residencia contemporánea con vegetación, concreto y luz natural" fetchPriority="high" /><div className="hero-shade" /><div className="container hero-content"><Reveal><p className="hero-eyebrow">VYGA INMOBILIARIA <span /> MIRAFLORES</p><h1 id="hero-title"><span className="hero-title-first">Desarrollo</span> <span className="hero-title-rest">inmobiliario<br /> con</span> <em>diseño y visión.</em></h1></Reveal><Reveal><p className="hero-description">Proyectos residenciales contemporáneos en Miraflores,<br className="desktop-break" /> que integran arquitectura, diseño y calidad de vida.</p></Reveal><Reveal className="hero-features"><div><Layers2 /><span>Diseño<br />arquitectónico</span></div><div><Leaf /><span>Espacios<br />funcionales</span></div><div><MapPin /><span>Ubicación<br />estratégica</span></div></Reveal><Reveal className="actions"><Button to="/proyectos" variant="light">Explorar proyectos</Button><Button to="/propiedades" variant="outline">Ver propiedades</Button></Reveal></div><div className="hero-position" aria-hidden="true" /></section> }
+
+
+
