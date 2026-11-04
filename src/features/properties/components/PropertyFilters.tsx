@@ -4,7 +4,7 @@ import type { PropertyFilters as Filters } from '../hooks/usePropertyCatalog'
 import { properties } from '@/data/properties'
 interface FilterSelectProps { label: string; icon: LucideIcon; value: string; onChange: (value: string) => void; options: { value: string; label: string }[]; disabled?: boolean }
 function FilterSelect({ label, icon: Icon, value, onChange, options, disabled }: FilterSelectProps) {
-  return <label className={`catalog-filter ${disabled ? 'catalog-filter--disabled' : ''}`} title={disabled ? `${label}: información pendiente de confirmar` : undefined}><span className="sr-only">{label}</span><Icon aria-hidden="true" /><select value={value} onChange={event => onChange(event.target.value)} disabled={disabled} aria-describedby={disabled ? 'catalog-data-note' : undefined}><option value="">{label}</option>{options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}</select><ChevronDown aria-hidden="true" className="filter-chevron" /></label>
+  return <label className={`catalog-filter ${disabled ? 'catalog-filter--disabled' : ''}`} title={disabled ? `${label}: información pendiente de confirmar` : undefined}><span className="sr-only">{label}</span><Icon aria-hidden="true" /><select value={value} onChange={event => onChange(event.target.value)} disabled={disabled}><option value="">{label}</option>{options.map(option => <option key={option.value} value={option.value}>{option.label}</option>)}</select><ChevronDown aria-hidden="true" className="filter-chevron" /></label>
 }
 export interface PropertyFiltersProps { values: Filters; onChange: (field: keyof Filters, value: string) => void; onSearch: () => void }
 export function PropertyFilters({ values, onChange, onSearch }: PropertyFiltersProps) {
@@ -19,5 +19,5 @@ export function PropertyFilters({ values, onChange, onSearch }: PropertyFiltersP
     <FilterSelect label="Dormitorios" icon={BedDouble} value={values.bedrooms} onChange={value => onChange('bedrooms', value)} disabled={!bedrooms.length} options={bedrooms.map(value => ({ value: String(value), label: `${value} dormitorios` }))} />
     <FilterSelect label="Área (m²)" icon={Expand} value={values.area} onChange={value => onChange('area', value)} disabled={!areas.length} options={areaRanges.map(range => ({ value: `${range.min}:${range.max}`, label: range.label }))} />
     <button type="submit" className="button button--dark catalog-search"><Search strokeWidth={1.6} />Buscar</button>
-  </form><p className="catalog-data-note" id="catalog-data-note">Los filtros de área y dormitorios se habilitarán al confirmar la información de las unidades.</p></>
+  </form></>
 }
