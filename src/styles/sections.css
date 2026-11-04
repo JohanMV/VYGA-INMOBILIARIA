@@ -109,6 +109,17 @@
 .form-fields input::placeholder,.form-fields textarea::placeholder { color: #57524a; opacity: 1; }
 .form-fields select { appearance: none; padding-right: 40px; }
 .form-fields .select-chevron { left: auto; right: 15px; width: 21px; }
+.contact-select { position: relative; min-width: 0; }
+.contact-select-validation { position: absolute; width: 1px !important; height: 1px; min-height: 0 !important; padding: 0 !important; opacity: 0; pointer-events: none; }
+.contact-select-trigger { display: flex; align-items: center; gap: 16px; width: 100%; min-height: 56px; padding: 15px 16px; color: #4b473f; background: #f8f3ed; border: 1px solid #e5dacc; border-radius: 6px; text-align: left; font: inherit; font-size: clamp(13px,1.05vw,18px); letter-spacing: -.025em; cursor: pointer; }
+.contact-select-trigger>svg:first-child { flex: none; width: 25px; height: 25px; stroke-width: 1.5; }
+.contact-select-trigger span { flex: 1; }
+.contact-select-chevron { width: 20px; transition: transform .2s; }
+.contact-select-trigger[aria-expanded=true] .contact-select-chevron { transform: rotate(180deg); }
+.contact-select-trigger:focus-visible { outline: 2px solid #cbb48e; outline-offset: 3px; }
+.contact-select-options { position: absolute; z-index: 5; top: calc(100% + 6px); left: 0; right: 0; padding: 6px; background: #f8f3ed; color: #342f24; border: 1px solid #d8cdc1; border-radius: 6px; box-shadow: 0 8px 20px #201c1230; }
+.contact-select-option { display: flex; align-items: center; justify-content: space-between; padding: 11px 15px; border-radius: 3px; font-size: clamp(13px,1vw,16px); cursor: pointer; }
+.contact-select-option.is-active { background: #e8dfd3; }
 .message-field { align-items: start!important; }
 .message-field>svg { top: 17px; }
 .form-fields textarea { min-height: 119px; resize: vertical; }
