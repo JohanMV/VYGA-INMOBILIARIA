@@ -15,11 +15,11 @@
 .catalog-banner p { font-size: 19px; line-height: 1.55; margin-top: 13px; letter-spacing: -.02em; }
 .catalog-content { padding-block: 31px 70px; }
 .catalog-filters { display: grid; grid-template-columns: 1.12fr 1.07fr 1fr 1fr .65fr; gap: 22px; }
-.catalog-filter { height: 49px; position: relative; display: flex; align-items: center; min-width: 0; border: 1px solid var(--color-vyga-border); border-radius: 6px; }
+.catalog-filter { height: 49px; position: relative; display: flex; align-items: center; min-width: 0; border: 1px solid #ad9f8d; border-radius: 6px; }
 .catalog-filter>svg { position: absolute; left: 20px; height: 23px; width: 23px; stroke-width: 1.4; pointer-events: none; }
 .catalog-filter .filter-chevron { left: auto; right: 17px; width: 18px; }
-.catalog-filter select { appearance: none; height: 100%; width: 100%; min-width: 0; padding: 0 42px 0 62px; border: 0; background: transparent; border-radius: 6px; color: inherit; font-size: 14px; cursor: pointer; }
-.catalog-filter select:disabled { cursor: not-allowed; opacity: 1; color: var(--color-vyga-text-secondary); -webkit-text-fill-color: var(--color-vyga-text-secondary); }
+.catalog-filter .catalog-select-trigger { appearance: none; height: 100%; width: 100%; min-width: 0; padding: 0 42px 0 62px; border: 0; background: transparent; border-radius: 6px; color: inherit; font-size: 14px; cursor: pointer; }
+.catalog-filter .catalog-select-trigger:disabled { cursor: not-allowed; opacity: 1; color: var(--color-vyga-text-secondary); -webkit-text-fill-color: var(--color-vyga-text-secondary); }
 .catalog-filter--disabled>svg { color: var(--color-vyga-text-secondary); }
 .catalog-search { min-height: 49px; padding: 10px 20px; gap: 12px; font-size: 15px; }
 .catalog-search svg { width: 23px; height: 23px; }
@@ -28,8 +28,46 @@
 .catalog-toolbar>p { font-size: 18px; letter-spacing: -.025em; }
 .catalog-toolbar strong { font-weight: 600; }
 .catalog-sort { display: flex; align-items: center; gap: 16px; font-size: 13px; }
-.catalog-sort select { color: inherit; padding: 9px 35px 9px 16px; background: transparent; border: 1px solid #cbbfaf; border-radius: 4px; font-size: 13px; max-width: 200px; }
+.catalog-sort .catalog-select-trigger { color: inherit; padding: 9px 35px 9px 16px; background: transparent; border: 1px solid #ad9f8d; border-radius: 4px; font-size: 13px; max-width: 200px; }
+.catalog-select { position: relative; min-width: 0; }
+.catalog-select-trigger { display: flex; align-items: center; width: 100%; font-family: inherit; font-weight: 500; text-align: left; }
+.catalog-select-trigger>span { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.catalog-select>.filter-chevron { position: absolute; right: 12px; top: 50%; width: 18px; height: 18px; transform: translateY(-50%); pointer-events: none; stroke-width: 1.4; }
+.catalog-select>.filter-chevron.is-open { transform: translateY(-50%) rotate(180deg); }
+.catalog-select:has([aria-expanded=true]) { z-index: 10; }
+.catalog-select-options { position: absolute; z-index: 10; top: calc(100% + 6px); left: -1px; right: -1px; max-height: min(280px,40svh); overflow-y: auto; overscroll-behavior: contain; padding: 6px; border: 1px solid #ad9f8d; border-radius: 6px; background: #f0e6db; color: #342f24; box-shadow: 0 8px 20px #201c121a; }
+.catalog-select-option { min-height: 44px; display: flex; align-items: center; justify-content: space-between; gap: 10px; padding: 10px 12px; border-radius: 3px; font-size: 14px; line-height: 1.4; cursor: pointer; overflow-wrap: anywhere; }
+.catalog-select-option.is-active { background: #dcd0bd; color: #342f24; }
+.catalog-select-option[aria-selected=true] { color: #3e3924; font-weight: 600; }
+.catalog-select-option svg { flex-shrink: 0; }
+.catalog-select-trigger:focus-visible { outline: 2px solid #3e3924; outline-offset: 2px; }
+.catalog-order-select { width: 168px; flex-shrink: 0; }
+.catalog-order-select .catalog-select-trigger { min-height: 40px; cursor: pointer; }
+/* Desktop catalog controls: keep the existing tablet and mobile composition. */
+@media (min-width: 1201px) {
+  .catalog-filter { height: 56px; border-color: #ad9f8d; color: #342f24; }
+  .catalog-filter:not(.catalog-filter--disabled):hover { border-color: #3e3924; }
+  .catalog-filter:focus-within { outline: 2px solid #3e3924; outline-offset: 2px; }
+  .catalog-filter .catalog-select-trigger:focus-visible { outline: none; }
+  .catalog-filter .catalog-select-trigger:disabled { color: #756c5e; -webkit-text-fill-color: #756c5e; }
+  .catalog-filter--disabled>svg { color: #756c5e; }
+  .catalog-search { min-height: 56px; background: #3e3924; }
+  .catalog-search:focus-visible, .catalog-sort .catalog-select-trigger:focus-visible { outline: 2px solid #3e3924; outline-offset: 2px; }
+  .catalog-toolbar { border-top: 1px solid #d8cdc1; padding-top: 24px; margin-block: 32px 28px; }
+  .catalog-toolbar>p { font-weight: 500; }
+  .catalog-sort { color: #342f24; }
+  .catalog-sort .catalog-select-trigger { min-height: 44px; border-color: #ad9f8d; border-radius: 6px; cursor: pointer; }
+  .catalog-sort .catalog-select-trigger:hover { border-color: #3e3924; }
+}
 .catalog-grid { display: grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap: 28px; align-items: stretch; }
+/* Preserve the original card geometry while containing variable brochure copy. */
+.catalog-property .property-title { min-width: 0; flex-wrap: nowrap; }
+.catalog-property .property-title h3 { min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis; }
+.catalog-property .property-title>span { flex-shrink: 0; }
+.catalog-property .property-info>p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 2; overflow: hidden; height: 2.8em; white-space: pre-line; }
+.catalog-property .property-meta>span { min-height: 2.5em; }
+.catalog-property .property-meta>span>span { display: block; border: 0; padding: 0; font: inherit; white-space: nowrap; }
+.detail-copy>p { display: -webkit-box; -webkit-box-orient: vertical; -webkit-line-clamp: 4; overflow: hidden; min-height: 6.6em; max-height: 6.6em; text-wrap: balance; }
 .catalog-card { display: flex; flex-direction: column; border: 0; border-radius: 6px; background: #fffefcb0; }
 .catalog-card .property-photo { aspect-ratio: 1.96; border-radius: 6px 6px 0 0; }
 .catalog-card .property-photo>a { display: block; height: 100%; }

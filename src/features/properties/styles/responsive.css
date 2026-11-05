@@ -1,7 +1,7 @@
 @media(max-width:1200px) {
   .catalog-filters { gap: 14px; }
   .catalog-filter>svg { left: 13px; width: 21px; }
-  .catalog-filter select { padding-left: 44px; font-size: 12px; padding-right: 28px; }
+  .catalog-filter .catalog-select-trigger { padding-left: 44px; font-size: 12px; padding-right: 28px; }
   .catalog-filter .filter-chevron { right: 11px; }
   .catalog-grid { gap: 20px; }
   .catalog-card .property-info { padding-inline: 16px; }
@@ -26,7 +26,7 @@
   .catalog-banner p { font-size: 17px; }
   .catalog-filters { grid-template-columns: 1fr 1fr; }
   .catalog-search { grid-column: 1/-1; justify-self: end; min-width: 180px; }
-  .catalog-filter select { font-size: 14px; }
+  .catalog-filter .catalog-select-trigger { font-size: 14px; }
   .catalog-data-note { font-size: 11px; line-height: 1.5; max-width: 550px; }
   .catalog-grid { grid-template-columns: repeat(2,minmax(0,1fr)); }
   .catalog-card .property-photo { aspect-ratio: 1.6; }
@@ -68,14 +68,14 @@
   .catalog-filters { gap: 12px; }
   .catalog-filter { height: 50px; }
   .catalog-filter>svg { left: 11px; width: 19px; }
-  .catalog-filter select { font-size: 11px; padding-left: 35px; padding-right: 22px; }
+  .catalog-filter .catalog-select-trigger { font-size: 11px; padding-left: 35px; padding-right: 22px; }
   .catalog-filter .filter-chevron { right: 8px; width: 14px; }
   .catalog-search { justify-self: stretch; min-height: 48px; font-size: 14px; }
   .catalog-data-note { font-size: 10px; margin-top: 10px; }
   .catalog-toolbar { align-items: start; flex-direction: column; gap: 17px; margin-block: 25px 22px; }
   .catalog-toolbar>p { font-size: 16px; }
   .catalog-sort { width: 100%; justify-content: space-between; font-size: 12px; }
-  .catalog-sort select { padding-block: 10px; font-size: 12px; }
+  .catalog-sort .catalog-select-trigger { padding-block: 10px; font-size: 12px; }
   .catalog-grid { grid-template-columns: 1fr; gap: 24px; }
   .catalog-card .property-photo { aspect-ratio: 1.65; }
   .catalog-card .property-info { padding: 17px 18px 20px; }
