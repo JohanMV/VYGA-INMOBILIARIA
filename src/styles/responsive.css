@@ -5,6 +5,9 @@
  .properties-heading { grid-template-columns: 40% 29% 1fr; gap: 3%; } .properties-heading>p { padding-left: 20px; } .properties-heading .button { white-space: normal; padding-inline: 18px; } .contact-form { padding: 30px 25px; } .form-fields input { padding-left: 45px; } .form-fields label>svg { left: 12px; width: 22px; } .form-row { gap: 12px; }
 }
 @media(max-width:900px) {
+ .header-inner > .header-cta { display: none; }
+ .menu-toggle { margin-left: auto; }
+ .nav--open .mobile-nav-cta { display: inline-flex; margin-top: 12px; align-self: flex-start; padding: 12px 20px; color: var(--color-vyga-surface); }
  .header { height: 80px; } .nav { display: none; } .menu-toggle { display: flex; } .header-cta { margin-left: auto; } .nav--open { display: flex; position: absolute; top: 79px; left: 0; right: 0; background: #f7f0ea; color: #342f24; padding: 24px 6%; flex-direction: column; align-items: stretch; gap: 4px; border-bottom: 1px solid #d8cdc1; font-size: 17px; } .nav--open a { padding: 12px; }
  .hero { min-height: 760px; max-height: 1000px; } .hero h1 { font-size: 5.7vw; } .hero-content { padding-top: 95px; } .hero-background { object-position: 58% center; } .hero-shade { background: linear-gradient(90deg,#15150fb3,#1d1a1433); } .hero-features { margin-block: 35px; }
  .about-grid { grid-template-columns: 46% 51%; } .about h2,.about h1 { font-size: 4.2vw; } .about-collage { height: 40vw; } .eyebrow { margin-bottom: 28px; } .about-copy .description { margin-block: 25px; font-size: 15px; } .about-copy .button { font-size: 12px; padding: 13px 14px; }
@@ -26,4 +29,10 @@
  .interior .section:first-child { padding-top: 55px; }
 }
 @media(max-width:600px) { .hero .actions .button { font-size: 13px; } }
+
+@media (max-width: 900px) {
+ .header-inner .nav { display: flex; position: absolute; top: 79px; left: 0; right: 0; flex-direction: column; align-items: stretch; gap: 4px; padding: 24px 6%; background: #f7f0ea; color: #342f24; border-bottom: 1px solid #d8cdc1; font-size: 17px; opacity: 0; visibility: hidden; pointer-events: none; transform: translateY(-12px); transition: opacity 280ms ease, transform 280ms ease, visibility 0s linear 280ms; }
+ .header-inner .nav--open { opacity: 1; visibility: visible; pointer-events: auto; transform: translateY(0); transition: opacity 280ms ease, transform 280ms ease, visibility 0s; }
+}
+@media (max-width: 600px) { .header-inner .nav { top: 73px; } }
 

@@ -8,8 +8,15 @@ import { VizzenPage } from '@/features/projects/VizzenPage'
 import { ProjectsPage } from '@/features/projects/ProjectsPage'
 import { AboutPage } from '@/features/about/AboutPage'
 function Pages() {
- const { pathname, search } = useLocation()
+ const { pathname, search, hash, key } = useLocation()
  useEffect(() => { window.scrollTo(0, 0); document.title = 'VYGA Inmobiliaria | Arquitectura, diseño y bienestar' }, [pathname])
+ useEffect(() => {
+  if (pathname !== '/contacto' || hash !== '#formulario') return
+  const frame = requestAnimationFrame(() => {
+   document.getElementById('formulario')?.scrollIntoView({ behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth', block: 'start' })
+  })
+  return () => cancelAnimationFrame(frame)
+ }, [pathname, hash, key])
  return <><Header /><main id="contenido" className={pathname === '/' ? '' : 'interior'}><Routes>
  <Route path="/" element={<><Hero /><About /><Projects /><Properties /><Contact form={<ContactForm key={search} />} /></>} />
  <Route path="/nosotros" element={<AboutPage />} />

@@ -98,7 +98,7 @@
 .stone-contact { left: -4%; bottom: -8%; width: 51%; height: 60%; }
 .contact-form-wrap { position: relative; isolation: isolate; margin-top: 30px; }
 .stone-form { right: -4%; top: -5%; width: 35%; height: 33%; }
-.contact-form { background: var(--color-vyga-primary); color: #f7f0ea; border: 1px solid #fff8; padding: 38px 38px 40px; border-radius: 15px; box-shadow: 0 10px 25px #342f2414; }
+.contact-form { scroll-margin-top: 110px; background: var(--color-vyga-primary); color: #f7f0ea; border: 1px solid #fff8; padding: 38px 38px 40px; border-radius: 15px; box-shadow: 0 10px 25px #342f2414; }
 .contact-form h3 { font-size: clamp(28px,2.55vw,45px); font-weight: 500; line-height: 1.2; letter-spacing: -.04em; padding-inline: 12px; }
 .contact-form>p { font-size: clamp(17px,1.35vw,23px); line-height: 1.45; padding-inline: 12px; margin-block: 12px 32px; }
 .form-fields { display: grid; gap: 19px; }

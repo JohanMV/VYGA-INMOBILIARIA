@@ -24,6 +24,7 @@
 .nav a { padding-block: 15px; transition: opacity .2s; }
 .nav a:hover { opacity: .65; }
 .nav a.active { font-weight: 700; }
+.nav .mobile-nav-cta { display: none; }
 .header-cta { min-height: 44px; font-size: 14px; padding: 11px 19px; }
 .header--hero .header-cta { transition: background-color 350ms ease, color 350ms ease, border-color 350ms ease, transform .2s; }
 .header--hero.header--scrolled .header-cta { background: var(--color-vyga-primary); color: var(--color-vyga-surface); border-color: transparent; }
