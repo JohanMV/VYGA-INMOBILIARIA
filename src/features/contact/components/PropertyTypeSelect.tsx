@@ -3,14 +3,13 @@ import { Check, ChevronDown, Layers2 } from 'lucide-react'
 
 const options = ['Lofts', 'Flats', 'Dúplex', 'Necesito asesoría']
 
-export function PropertyTypeSelect({ initialValue, resetKey }: { initialValue: string; resetKey: string }) {
+export function PropertyTypeSelect({ initialValue }: { initialValue: string }) {
  const [value, setValue] = useState(initialValue)
  const [open, setOpen] = useState(false)
  const [active, setActive] = useState(0)
  const root = useRef<HTMLDivElement>(null)
  const trigger = useRef<HTMLButtonElement>(null)
  const listId = useId()
- useEffect(() => { if (resetKey === 'success') { setValue(''); setOpen(false) } }, [resetKey])
  useEffect(() => {
   const close = (event: PointerEvent) => { if (!root.current?.contains(event.target as Node)) setOpen(false) }
   document.addEventListener('pointerdown', close)

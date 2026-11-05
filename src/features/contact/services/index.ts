@@ -1,1 +1,1 @@
-export { sendContact } from './contact'
+export { contactWhatsAppUrl } from './contact'
